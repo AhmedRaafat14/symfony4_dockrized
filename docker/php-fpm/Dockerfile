@@ -25,6 +25,10 @@ RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 RUN "date"
 
+# Comment this line if you already have a poject
+WORKDIR /var/www
+RUN composer create-project symfony/website-skeleton:^4.4 dashboard
+
 WORKDIR /var/www/dashboard
 
 CMD ["php-fpm"]

@@ -12,7 +12,6 @@ services:
     build:
       context: ./docker/php-fpm
     volumes:
-      - ./dashboard:/var/www/dashboard
       - ./docker/php-fpm/php-ini-local.ini:/usr/local/etc/php/conf.d/php.ini
     depends_on:
       - mysql
@@ -22,7 +21,6 @@ services:
     build:
       context: ./docker/nginx
     volumes:
-      - ./dashboard:/var/www/dashboard
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./docker/nginx/sites:/etc/nginx/sites-available
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
